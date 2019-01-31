@@ -1,0 +1,45 @@
+﻿@page
+@using ViewComponentDemo.ViewComponents
+@model ViewComponentDemo.Pages.ApiDemoModel
+@{
+    ViewData["Title"] = "ViewComponents with API";
+}
+
+<article>
+    <h2>@ViewData["Title"]</h2>
+    <p>This demonstration is utilizing a ViewComponent invoked by a Razor Page, and the POST is submitted to an API endpoint</p>
+    <p>Benefits</p>
+    <ul>
+        <li>Easy implementation</li>
+        <li>Same amount of JavaScript (Enough code to move elements from one list to the other)</li>
+        <li>
+            No longer coupled to the Page it's being invoked from
+            <ul>
+                <li>
+                    The <code>ViewComponent->View->Form</code> is using POST to send the response to an API endpoint <code>@("<form method=\"post\" action=\"/api/Fruits/Post\">")</code>
+                </li>
+            </ul>
+        </li>
+
+    </ul>
+    <p>Limitations</p>
+    <ul>
+        <li>Unacceptable User Experience</li>
+    </ul>
+    <hr />
+    <section>
+        <h3>Rating</h3>
+        <dl>
+            <dd>User Experience</dd>
+            <dt><span style="color: gold"></span>★★★★★</dt>
+            <dd>Reusable</dd>
+            <dt><span style="color: gold">★★★</span>★★</dt>
+            <dd>Easy to implement</dd>
+            <dt><span style="color: gold">★★★★</span>★</dt>
+        </dl>
+    </section>
+</article>
+
+<hr />
+
+@await Component.InvokeAsync("FruitsBasket", VcDemoType.Api)

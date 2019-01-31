@@ -1,0 +1,29 @@
+﻿@using DataProvider;
+@model List<Fruit>
+@{
+    var available = new SelectList(Model.Where(x => x.Selected == false), "Id", "Name");
+    var selected = new SelectList(Model.Where(x => x.Selected), "Id", "Name");
+}
+
+@{ /* asp-controller="fruits" asp-action="post" */ }
+
+<hr />
+<h3>Api</h3>
+<form class="fruitForm" asp-controller="fruits" asp-action="post">
+    <div class="fruitControls">
+        <div>
+            <select name="available" class="form-control data-available" multiple="multiple" asp-items="@available"></select>
+        </div>
+        <div class="arrows">
+            <input type="button" class="data-add" value="→" />
+            <input type="button" class="data-remove" value="←" />
+        </div>
+        <div>
+            <select name="selected" class="form-control data-selected" multiple="multiple" asp-items="@selected"></select>
+        </div>
+    </div>
+    <div>
+        <input type="submit" class="data-submit btn btn-primary" value="Submit" />
+    </div>
+</form>
+<script src="~/js/razorPageVcDemo.js" defer="defer"></script>

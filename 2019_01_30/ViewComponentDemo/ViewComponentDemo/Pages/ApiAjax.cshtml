@@ -1,0 +1,72 @@
+﻿@page
+@using ViewComponentDemo.ViewComponents
+@model ViewComponentDemo.Pages.ApiAjaxModel
+@{
+    ViewData["Title"] = "ApiAjax";
+}
+
+<article>
+    <h2>@ViewData["Title"]</h2>
+    <p>This demonstration is utilizing a ViewComponent invoked by a Razor Page, and the POST is submitted to an API endpoint via AJAX</p>
+    <p>Benefits</p>
+    <ul>
+        <li>Easy implementation</li>
+        <li>More JavaScript
+            <ul>
+                <li>Move items between lists (same as before)</li>
+                <li>Ensure JS only loads once per page</li>
+                <li>AJAX call</li>
+            </ul>
+        </li>
+        <li>
+            No longer coupled to the Page it's being invoked from
+            <ul>
+                <li>
+                    The <code>ViewComponent->View->Form</code> is using POST to send the response to an API endpoint <code>@("<form method=\"post\" action=\"/api/Fruits/Post\">")</code>
+                </li>
+            </ul>
+        </li>
+
+    </ul>
+    <p>Limitations</p>
+    <ul>
+        <li>More JavaScript Code</li>
+        <li>AJAX seems to be obsolete</li>
+    </ul>
+    <hr />
+    <section>
+        <h3>Rating</h3>
+        <dl>
+            <dd>User Experience</dd>
+            <dt><span style="color: gold">★★★★★</span></dt>
+            <dd>Reusable</dd>
+            <dt><span style="color: gold">★★★★★</span></dt>
+            <dd>Easy to implement</dd>
+            <dt><span style="color: gold">★★★</span>★★</dt>
+        </dl>
+    </section>
+</article>
+
+<hr />
+
+@await Component.InvokeAsync("FruitsBasket", VcDemoType.ApiAjax)
+
+<hr />
+
+<div class="fruitWrapper">
+    @await Component.InvokeAsync("FruitsBasket", VcDemoType.ApiAjax)
+    @await Component.InvokeAsync("FruitsBasket", VcDemoType.ApiAjax)
+    @await Component.InvokeAsync("FruitsBasket", VcDemoType.ApiAjax)
+    @await Component.InvokeAsync("FruitsBasket", VcDemoType.ApiAjax)
+    @await Component.InvokeAsync("FruitsBasket", VcDemoType.ApiAjax)
+    @await Component.InvokeAsync("FruitsBasket", VcDemoType.ApiAjax)
+    @await Component.InvokeAsync("FruitsBasket", VcDemoType.ApiAjax)
+    @await Component.InvokeAsync("FruitsBasket", VcDemoType.ApiAjax)
+    @await Component.InvokeAsync("FruitsBasket", VcDemoType.ApiAjax)
+    @await Component.InvokeAsync("FruitsBasket", VcDemoType.ApiAjax)
+    @await Component.InvokeAsync("FruitsBasket", VcDemoType.ApiAjax)
+    @await Component.InvokeAsync("FruitsBasket", VcDemoType.ApiAjax)
+    @await Component.InvokeAsync("FruitsBasket", VcDemoType.ApiAjax)
+    @await Component.InvokeAsync("FruitsBasket", VcDemoType.ApiAjax)
+    @await Component.InvokeAsync("FruitsBasket", VcDemoType.ApiAjax)
+</div>

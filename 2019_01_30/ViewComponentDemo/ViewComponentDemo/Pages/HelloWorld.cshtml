@@ -1,0 +1,8 @@
+﻿@page
+@model ViewComponentDemo.Pages.HelloWorldModel
+@{
+    ViewData["Title"] = "HelloWorld";
+}
+
+
+@await Component.InvokeAsync("HelloWorld", new { message = "Invoked from Razor Pages"})

@@ -1,0 +1,50 @@
+﻿@page
+@using Microsoft.AspNetCore.Html
+@using ViewComponentDemo.ViewComponents
+@model ViewComponentDemo.Pages.RazorPageVcDemoModel
+@{
+    ViewData["Title"] = "ViewComponents with Razor Pages";
+}
+
+<article>
+    <h2>@ViewData["Title"]</h2>
+    <p>This demonstration is utilizing a ViewComponent that is invoked by Razor Pages, and data is returned to the same page.</p>
+    <p>Benefits</p>
+    <ul>
+        <li>Easiest implementation</li>
+        <li>Minimal JavaScript (Enough code to move elements from one list to the other)</li>
+
+    </ul>
+    <p>Limitations</p>
+    <ul>
+        <li>
+            Tightly coupled to the Page it's being invoked from
+            <ul>
+                <li>
+                    The ViewComponent->View->Form is using POST to send the response to the page it was invoked from <code>@("<form method=\"post\" asp-page=\"/RazorPageVcDemo\">")</code>
+                </li>
+                <li>
+                    This may not be a huge issue if the component is only being invoked from the <code>_Layout</code> page
+                </li>
+            </ul>
+        </li>
+        <li>Not using Post-Redirect-Get (PRG), so there is a confirm form resubmission dialog submit then refresh</li>
+        <li>Screen refresh</li>
+    </ul>
+    <hr/>
+    <section>
+        <h3>Rating</h3>
+        <dl>
+            <dd>User Experience</dd>
+            <dt><span style="color: gold">★★</span>★★★</dt>
+            <dd>Reusable</dd>
+            <dt><span style="color: gold">★★</span>★★★</dt>
+            <dd>Easy to implement</dd>
+            <dt><span style="color: gold">★★★★★</span></dt>
+        </dl>
+    </section>
+</article>
+
+<hr/>
+
+@await Component.InvokeAsync("FruitsBasket", VcDemoType.RazorPages)
