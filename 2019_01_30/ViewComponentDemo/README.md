@@ -7,4 +7,5 @@ Presented by Adam Vincent
 I am a Software Engineer at Applied Information Sciences (AIS) and relatively new to the game with 3 years of experience in C# and the .NET stack. I am an advocate for Clean Code, Humane Code and other variants of developing software that is structured not only to meet the requirements of the user, but also software that can be read and maintained because the code clearly communicates the intent of the code.
 
 ## Events
- - 1/30/2019: TriNUG @ AIS : https://www.meetup.com/TRINUG/events/258135588
+ - 1/30/2019: Triangle .NET Users Group (TriNUG) @ AIS : https://www.meetup.com/TRINUG/events/258135588
+ - 3/15/2018: AIS Dev Days
